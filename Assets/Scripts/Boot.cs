@@ -36,12 +36,8 @@ public class Boot : MonoBehaviour
         // 设置默认的资源包
         var gamePackage = YooAssets.GetPackage("DefaultPackage");
         YooAssets.SetDefaultPackage(gamePackage);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        YooAssets.LoadSceneAsync("New Scene");
     }
 }
 
