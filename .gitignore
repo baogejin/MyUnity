@@ -3,3 +3,7 @@
 [Oo]bj/
 [Bb]uilds/
 Logs/
+Bundles/
+Assets/StreamingAssets/
+Assets/StreamingAssets.meta
+.vs/
