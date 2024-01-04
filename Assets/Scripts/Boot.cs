@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using YooAsset;
+using GameData;
 
 public class Boot : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class Boot : MonoBehaviour
         var gamePackage = YooAssets.GetPackage("DefaultPackage");
         YooAssets.SetDefaultPackage(gamePackage);
 
-        YooAssets.LoadSceneAsync("New Scene");
+        Debug.Log(GlobalCfg.Get().GetInfoByKey(GlobalKey.AccountMaxLen).Value);
     }
 }
 

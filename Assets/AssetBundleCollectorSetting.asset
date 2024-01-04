@@ -18,7 +18,7 @@ MonoBehaviour:
   Packages:
   - PackageName: DefaultPackage
     PackageDesc: 
-    EnableAddressable: 1
+    EnableAddressable: 0
     LocationToLower: 0
     IncludeAssetGUID: 0
     IgnoreDefaultType: 1
@@ -29,8 +29,8 @@ MonoBehaviour:
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
-      - CollectPath: Assets/Res
-        CollectorGUID: 4750031d85e6cd74f9887cb357068e71
+      - CollectPath: Assets/GameRes
+        CollectorGUID: 612c23a57319f194dad3391adffd1ff1
         CollectorType: 0
         AddressRuleName: AddressByFileName
         PackRuleName: PackDirectory

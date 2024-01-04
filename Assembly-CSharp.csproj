@@ -76,9 +76,12 @@
     <Compile Include="Assets\Scripts\EventDefine\PatchEventDefine.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\EventManager.cs" />
     <Compile Include="Assets\Scripts\Patch\StreamingAssetsHelper\BuildinFileManifest.cs" />
+    <Compile Include="Assets\Scripts\Data\Global.cs" />
+    <Compile Include="Assets\Scripts\Data\GenCode\ExampleCfg.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\EventDriver.cs" />
     <Compile Include="Assets\Scripts\Patch\Encryption.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmDownloadPackageOver.cs" />
+    <Compile Include="Assets\Scripts\Data\GenCode\GlobalKey.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmInitializePackage.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\EventGroup.cs" />
     <Compile Include="Assets\Scripts\Patch\PatchWindow.cs" />
@@ -424,6 +427,10 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">
