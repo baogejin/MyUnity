@@ -1,6 +1,7 @@
 using GameData;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using YooAsset;
 
@@ -22,15 +23,16 @@ namespace GameData
         public static GlobalCfg Get()
         {
             if (_instance == null)
-                _instance = Create();
+                Init();
             return _instance;
         }
 
-        private static GlobalCfg Create()
+        private static void Init()
         {
             AssetHandle handle = YooAssets.LoadAssetSync<TextAsset>("Assets/GameRes/Json/Global");
             TextAsset text = handle.AssetObject as TextAsset;
-            return JsonConvert.DeserializeObject<GlobalCfg>(text.text);
+            _instance = JsonConvert.DeserializeObject<GlobalCfg>(text.text);
+            handle.Release();
         }
 
         public GlobalInfo GetInfoByKey(string key)

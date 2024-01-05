@@ -1,18 +1,18 @@
+ï»¿using GameData;
 using System.Collections;
 using UnityEngine;
 using YooAsset;
-using GameData;
 
 public class Boot : MonoBehaviour
 {
     /// <summary>
-    /// ×ÊÔ´ÏµÍ³ÔËĞĞÄ£Ê½
+    /// èµ„æºç³»ç»Ÿè¿è¡Œæ¨¡å¼
     /// </summary>
     public EPlayMode PlayMode = EPlayMode.EditorSimulateMode;
 
     private void Awake()
     {
-        Debug.Log($"×ÊÔ´ÏµÍ³ÔËĞĞÄ£Ê½£º{PlayMode}");
+        Debug.Log($"èµ„æºç³»ç»Ÿè¿è¡Œæ¨¡å¼ï¼š{PlayMode}");
         Application.targetFrameRate = 60;
         Application.runInBackground = true;
         DontDestroyOnLoad(this.gameObject);
@@ -22,23 +22,38 @@ public class Boot : MonoBehaviour
     IEnumerator Start()
     {
         Game.Instance.Behaviour = this;
-        // ³õÊ¼»¯×ÊÔ´ÏµÍ³
+        // åˆå§‹åŒ–èµ„æºç³»ç»Ÿ
         YooAssets.Initialize();
 
-        // ¼ÓÔØ¸üĞÂÒ³Ãæ
+        // åŠ è½½æ›´æ–°é¡µé¢
         var go = Resources.Load<GameObject>("PatchWindow");
         GameObject.Instantiate(go);
 
-        // ¿ªÊ¼²¹¶¡¸üĞÂÁ÷³Ì
+        // å¼€å§‹è¡¥ä¸æ›´æ–°æµç¨‹
         PatchOperation operation = new PatchOperation("DefaultPackage", EDefaultBuildPipeline.BuiltinBuildPipeline.ToString(), PlayMode);
         YooAssets.StartOperation(operation);
         yield return operation;
 
-        // ÉèÖÃÄ¬ÈÏµÄ×ÊÔ´°ü
+        // è®¾ç½®é»˜è®¤çš„èµ„æºåŒ…
         var gamePackage = YooAssets.GetPackage("DefaultPackage");
         YooAssets.SetDefaultPackage(gamePackage);
 
-        Debug.Log(GlobalCfg.Get().GetInfoByKey(GlobalKey.AccountMaxLen).Value);
+        //å®šæ—¶æ¸…ç†èµ„æºåŒ…
+        InvokeRepeating("UnloadUnusedAssets", 300f, 300f);
+
+        Debug.Log(GameData.GlobalCfg.Get().GetInfoByKey(GlobalKey.AccountMaxLen).Value);
+
+        YooAssets.LoadSceneAsync("Assets/GameRes/Scenes/Game");
+    }
+
+    /// <summary>
+    /// å¸è½½æ‰€æœ‰å¼•ç”¨è®¡æ•°ä¸ºé›¶çš„èµ„æºåŒ…
+    /// </summary>
+    private void UnloadUnusedAssets()
+    {
+        Debug.Log("UnloadUnusedAssets");
+        var package = YooAssets.GetPackage("DefaultPackage");
+        package.UnloadUnusedAssets();
     }
 }
 
