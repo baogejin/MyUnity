@@ -9,6 +9,7 @@ public class Boot : MonoBehaviour
     /// 资源系统运行模式
     /// </summary>
     public EPlayMode PlayMode = EPlayMode.EditorSimulateMode;
+    private PatchWindow _patchWindow;
 
     private void Awake()
     {
@@ -25,9 +26,7 @@ public class Boot : MonoBehaviour
         // 初始化资源系统
         YooAssets.Initialize();
 
-        // 加载更新页面
-        var go = Resources.Load<GameObject>("PatchWindow");
-        GameObject.Instantiate(go);
+        _patchWindow = new PatchWindow(transform.Find("Canvas").gameObject);
 
         // 开始补丁更新流程
         PatchOperation operation = new PatchOperation("DefaultPackage", EDefaultBuildPipeline.BuiltinBuildPipeline.ToString(), PlayMode);
@@ -43,7 +42,7 @@ public class Boot : MonoBehaviour
 
         Debug.Log(GameData.GlobalCfg.Get().GetInfoByKey(GlobalKey.AccountMaxLen).Value);
 
-        YooAssets.LoadSceneAsync("Assets/GameRes/Scenes/Game");
+        //YooAssets.LoadSceneAsync("Assets/GameRes/Scenes/Game");
     }
 
     /// <summary>

@@ -15,7 +15,7 @@ public class FsmCreatePackageDownloader : IStateNode
     }
     void IStateNode.OnEnter()
     {
-        PatchEventDefine.PatchStatesChange.SendEventMessage("创建补丁下载器！");
+        PatchEventDefine.PatchStatesChange.SendEventMessage("准备更新资源");
         Game.Instance.StartCoroutine(CreateDownloader());
     }
     void IStateNode.OnUpdate()

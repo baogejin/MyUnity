@@ -15,7 +15,7 @@ public class FsmUpdatePackageManifest : IStateNode
     }
     void IStateNode.OnEnter()
     {
-        PatchEventDefine.PatchStatesChange.SendEventMessage("更新资源清单！");
+        PatchEventDefine.PatchStatesChange.SendEventMessage("更新资源清单");
         Game.Instance.StartCoroutine(UpdateManifest());
     }
     void IStateNode.OnUpdate()

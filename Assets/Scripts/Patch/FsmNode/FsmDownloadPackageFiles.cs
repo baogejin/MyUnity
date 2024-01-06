@@ -14,7 +14,7 @@ public class FsmDownloadPackageFiles : IStateNode
     }
     void IStateNode.OnEnter()
     {
-        PatchEventDefine.PatchStatesChange.SendEventMessage("开始下载补丁文件！");
+        PatchEventDefine.PatchStatesChange.SendEventMessage("开始下载补丁文件");
         Game.Instance.StartCoroutine(BeginDownload());
     }
     void IStateNode.OnUpdate()

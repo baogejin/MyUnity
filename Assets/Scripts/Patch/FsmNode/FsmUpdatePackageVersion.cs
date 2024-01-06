@@ -15,7 +15,7 @@ internal class FsmUpdatePackageVersion : IStateNode
     }
     void IStateNode.OnEnter()
     {
-        PatchEventDefine.PatchStatesChange.SendEventMessage("获取最新的资源版本 !");
+        PatchEventDefine.PatchStatesChange.SendEventMessage("获取最新的资源版本号");
         Game.Instance.StartCoroutine(UpdatePackageVersion());
     }
     void IStateNode.OnUpdate()

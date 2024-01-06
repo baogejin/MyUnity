@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Diagnostics;
 using UnityEngine.UI;
 
-public class PatchWindow : MonoBehaviour
+public class PatchWindow
 {
     /// <summary>
     /// 对话框封装类
@@ -27,7 +27,7 @@ public class PatchWindow : MonoBehaviour
         public void Create(GameObject cloneObject)
         {
             _cloneObject = cloneObject;
-            _content = cloneObject.transform.Find("BoxText").GetComponent<Text>();
+            _content = cloneObject.transform.Find("MessageText").GetComponent<Text>();
             _btnOK = cloneObject.transform.Find("Button").GetComponent<Button>();
             _btnOK.onClick.AddListener(OnClickYes);
         }
@@ -50,16 +50,11 @@ public class PatchWindow : MonoBehaviour
             Hide();
         }
     }
-    private readonly EventGroup _eventGroup = new EventGroup();
-    private readonly List<PatchWindowMessageBox> _msgBoxList = new List<PatchWindowMessageBox>();
-
-    private GameObject _messageBoxObj;
-    private Text _progressText;
-    private Slider _slider;
-    private void Awake()
+    public PatchWindow(GameObject obj)
     {
-        _progressText = transform.Find("Canvas/Progress").GetComponent<Text>();
-        _messageBoxObj = transform.Find("Canvas/MessageBox").gameObject;
+        _object = obj;
+        _progressText = _object.transform.Find("PatchCheck/Progress").GetComponent<Text>();
+        _messageBoxObj = _object.transform.Find("PatchMessageBox").gameObject;
         _eventGroup.AddListener<PatchEventDefine.InitializeFailed>(OnHandleEventMessage);
         _eventGroup.AddListener<PatchEventDefine.PatchStatesChange>(OnHandleEventMessage);
         _eventGroup.AddListener<PatchEventDefine.FoundUpdateFiles>(OnHandleEventMessage);
@@ -68,17 +63,13 @@ public class PatchWindow : MonoBehaviour
         _eventGroup.AddListener<PatchEventDefine.PatchManifestUpdateFailed>(OnHandleEventMessage);
         _eventGroup.AddListener<PatchEventDefine.WebFileDownloadFailed>(OnHandleEventMessage);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private readonly EventGroup _eventGroup = new EventGroup();
+    private readonly List<PatchWindowMessageBox> _msgBoxList = new List<PatchWindowMessageBox>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private GameObject _object;
+    private GameObject _messageBoxObj;
+    private Text _progressText;
+    private Slider _slider;
 
     /// <summary>
     /// 接收事件
