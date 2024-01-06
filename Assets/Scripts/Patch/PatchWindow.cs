@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Diagnostics;
@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class PatchWindow : MonoBehaviour
 {
     /// <summary>
-    /// ¶Ô»°¿ò·â×°Àà
+    /// å¯¹è¯æ¡†å°è£…ç±»
     /// </summary>
-    private class MessageBox
+    private class PatchWindowMessageBox
     {
         private GameObject _cloneObject;
         private Text _content;
@@ -51,7 +51,7 @@ public class PatchWindow : MonoBehaviour
         }
     }
     private readonly EventGroup _eventGroup = new EventGroup();
-    private readonly List<MessageBox> _msgBoxList = new List<MessageBox>();
+    private readonly List<PatchWindowMessageBox> _msgBoxList = new List<PatchWindowMessageBox>();
 
     private GameObject _messageBoxObj;
     private Text _progressText;
@@ -81,7 +81,7 @@ public class PatchWindow : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ÓÊÕÊÂ¼ş
+    /// æ¥æ”¶äº‹ä»¶
     /// </summary>
     private void OnHandleEventMessage(IEventMessage message)
     {
@@ -91,7 +91,7 @@ public class PatchWindow : MonoBehaviour
             {
                 UserEventDefine.UserTryInitialize.SendEventMessage();
             };
-            ShowMessageBox($"×ÊÔ´¼ì²é³õÊ¼»¯Ê§°Ü", callback);
+            ShowMessageBox($"èµ„æºæ£€æŸ¥åˆå§‹åŒ–å¤±è´¥", callback);
         }
         else if (message is PatchEventDefine.PatchStatesChange)
         {
@@ -108,7 +108,7 @@ public class PatchWindow : MonoBehaviour
             float sizeMB = msg.TotalSizeBytes / 1048576f;
             sizeMB = Mathf.Clamp(sizeMB, 0.1f, float.MaxValue);
             string totalSizeMB = sizeMB.ToString("f1");
-            ShowMessageBox($"·¢ÏÖ¸üĞÂ£¬ÎÄ¼şÊıÁ¿ {msg.TotalCount} ×Ü´óĞ¡ {totalSizeMB}MB", callback);
+            ShowMessageBox($"å‘ç°æ›´æ–°ï¼Œæ–‡ä»¶æ•°é‡ {msg.TotalCount} æ€»å¤§å° {totalSizeMB}MB", callback);
         }
         else if (message is PatchEventDefine.DownloadProgressUpdate)
         {
@@ -124,7 +124,7 @@ public class PatchWindow : MonoBehaviour
             {
                 UserEventDefine.UserTryUpdatePackageVersion.SendEventMessage();
             };
-            ShowMessageBox($"°æ±¾ºÅ¸üĞÂÊ§°Ü", callback);
+            ShowMessageBox($"ç‰ˆæœ¬å·æ›´æ–°å¤±è´¥", callback);
         }
         else if (message is PatchEventDefine.PatchManifestUpdateFailed)
         {
@@ -132,7 +132,7 @@ public class PatchWindow : MonoBehaviour
             {
                 UserEventDefine.UserTryUpdatePatchManifest.SendEventMessage();
             };
-            ShowMessageBox($"¸üĞÂÁĞ±í»ñÈ¡Ê§°Ü", callback);
+            ShowMessageBox($"æ›´æ–°åˆ—è¡¨è·å–å¤±è´¥", callback);
         }
         else if (message is PatchEventDefine.WebFileDownloadFailed)
         {
@@ -141,7 +141,7 @@ public class PatchWindow : MonoBehaviour
             {
                 UserEventDefine.UserTryDownloadWebFiles.SendEventMessage();
             };
-            ShowMessageBox($"ÎÄ¼şÏÂÔØÊ§°Ü£º{msg.FileName}", callback);
+            ShowMessageBox($"æ–‡ä»¶ä¸‹è½½å¤±è´¥ï¼š{msg.FileName}", callback);
         }
         else
         {
@@ -150,12 +150,12 @@ public class PatchWindow : MonoBehaviour
     }
 
     /// <summary>
-    /// ÏÔÊ¾¶Ô»°¿ò
+    /// æ˜¾ç¤ºå¯¹è¯æ¡†
     /// </summary>
     private void ShowMessageBox(string content, System.Action ok)
     {
-        // ³¢ÊÔ»ñÈ¡Ò»¸ö¿ÉÓÃµÄ¶Ô»°¿ò
-        MessageBox msgBox = null;
+        // å°è¯•è·å–ä¸€ä¸ªå¯ç”¨çš„å¯¹è¯æ¡†
+        PatchWindowMessageBox msgBox = null;
         for (int i = 0; i < _msgBoxList.Count; i++)
         {
             var item = _msgBoxList[i];
@@ -166,16 +166,16 @@ public class PatchWindow : MonoBehaviour
             }
         }
 
-        // Èç¹ûÃ»ÓĞ¿ÉÓÃµÄ¶Ô»°¿ò£¬Ôò´´½¨Ò»¸öĞÂµÄ¶Ô»°¿ò
+        // å¦‚æœæ²¡æœ‰å¯ç”¨çš„å¯¹è¯æ¡†ï¼Œåˆ™åˆ›å»ºä¸€ä¸ªæ–°çš„å¯¹è¯æ¡†
         if (msgBox == null)
         {
-            msgBox = new MessageBox();
+            msgBox = new PatchWindowMessageBox();
             var cloneObject = GameObject.Instantiate(_messageBoxObj, _messageBoxObj.transform.parent);
             msgBox.Create(cloneObject);
             _msgBoxList.Add(msgBox);
         }
 
-        // ÏÔÊ¾¶Ô»°¿ò
+        // æ˜¾ç¤ºå¯¹è¯æ¡†
         msgBox.Show(content, ok);
     }
 }

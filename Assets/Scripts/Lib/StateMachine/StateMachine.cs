@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 
 public class StateMachine
@@ -9,12 +9,12 @@ public class StateMachine
     private IStateNode _preNode;
 
     /// <summary>
-    /// ×´Ì¬»ú³ÖÓĞÕß
+    /// çŠ¶æ€æœºæŒæœ‰è€…
     /// </summary>
     public System.Object Owner { private set; get; }
 
     /// <summary>
-    /// µ±Ç°ÔËĞĞµÄ½ÚµãÃû³Æ
+    /// å½“å‰è¿è¡Œçš„èŠ‚ç‚¹åç§°
     /// </summary>
     public string CurrentNode
     {
@@ -22,7 +22,7 @@ public class StateMachine
     }
 
     /// <summary>
-    /// Ö®Ç°ÔËĞĞµÄ½ÚµãÃû³Æ
+    /// ä¹‹å‰è¿è¡Œçš„èŠ‚ç‚¹åç§°
     /// </summary>
     public string PreviousNode
     {
@@ -37,7 +37,7 @@ public class StateMachine
     }
 
     /// <summary>
-    /// ¸üĞÂ×´Ì¬»ú
+    /// æ›´æ–°çŠ¶æ€æœº
     /// </summary>
     public void Update()
     {
@@ -46,7 +46,7 @@ public class StateMachine
     }
 
     /// <summary>
-    /// Æô¶¯×´Ì¬»ú
+    /// å¯åŠ¨çŠ¶æ€æœº
     /// </summary>
     public void Run<TNode>() where TNode : IStateNode
     {
@@ -71,7 +71,7 @@ public class StateMachine
     }
 
     /// <summary>
-    /// ¼ÓÈëÒ»¸ö½Úµã
+    /// åŠ å…¥ä¸€ä¸ªèŠ‚ç‚¹
     /// </summary>
     public void AddNode<TNode>() where TNode : IStateNode
     {
@@ -99,7 +99,7 @@ public class StateMachine
     }
 
     /// <summary>
-    /// ×ª»»×´Ì¬½Úµã
+    /// è½¬æ¢çŠ¶æ€èŠ‚ç‚¹
     /// </summary>
     public void ChangeState<TNode>() where TNode : IStateNode
     {
@@ -132,7 +132,7 @@ public class StateMachine
     }
 
     /// <summary>
-    /// ÉèÖÃºÚ°åÊı¾İ
+    /// è®¾ç½®é»‘æ¿æ•°æ®
     /// </summary>
     /// <param name="key"></param>
     /// <param name="value"></param>
@@ -145,7 +145,7 @@ public class StateMachine
     }
 
     /// <summary>
-    /// »ñÈ¡ºÚ°åÊı¾İ
+    /// è·å–é»‘æ¿æ•°æ®
     /// </summary>
     public System.Object GetBlackboardValue(string key)
     {

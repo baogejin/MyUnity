@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class Game
@@ -6,7 +6,7 @@ public class Game
     private static Game _instance;
 
     /// <summary>
-    /// »ñÈ¡µ¥Àı
+    /// è·å–å•ä¾‹
     /// </summary>
     public static Game Instance
     {
@@ -27,12 +27,12 @@ public class Game
     }
 
     /// <summary>
-    /// Ğ­³ÌÆô¶¯Æ÷
+    /// åç¨‹å¯åŠ¨å™¨
     /// </summary>
     public MonoBehaviour Behaviour;
 
     /// <summary>
-    /// ¿ªÆôÒ»¸öĞ­³Ì
+    /// å¼€å¯ä¸€ä¸ªåç¨‹
     /// </summary>
     public void StartCoroutine(IEnumerator enumerator)
     {

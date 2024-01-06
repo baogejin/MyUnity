@@ -1,4 +1,4 @@
-namespace GameData
+﻿namespace GameData
 {
     static class GlobalKey
     {

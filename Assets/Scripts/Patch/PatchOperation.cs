@@ -1,4 +1,4 @@
-using System;
+锘縰sing System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,14 +20,14 @@ public class PatchOperation : GameAsyncOperation
 
     public PatchOperation(string packageName, string buildPipeline, EPlayMode playMode)
     {
-        // 注册监听事件
+        // 娉ㄥ唽鐩戝惉浜嬩欢
         _eventGroup.AddListener<UserEventDefine.UserTryInitialize>(OnHandleEventMessage);
         _eventGroup.AddListener<UserEventDefine.UserBeginDownloadWebFiles>(OnHandleEventMessage);
         _eventGroup.AddListener<UserEventDefine.UserTryUpdatePackageVersion>(OnHandleEventMessage);
         _eventGroup.AddListener<UserEventDefine.UserTryUpdatePatchManifest>(OnHandleEventMessage);
         _eventGroup.AddListener<UserEventDefine.UserTryDownloadWebFiles>(OnHandleEventMessage);
 
-        // 创建状态机
+        // 鍒涘缓鐘舵�佹満
         _machine = new StateMachine(this);
         _machine.AddNode<FsmInitializePackage>();
         _machine.AddNode<FsmUpdatePackageVersion>();
@@ -68,7 +68,7 @@ public class PatchOperation : GameAsyncOperation
     }
 
     /// <summary>
-    /// 接收事件
+    /// 鎺ユ敹浜嬩欢
     /// </summary>
     private void OnHandleEventMessage(IEventMessage message)
     {

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,7 +42,7 @@ public class EventManager
     private readonly List<PostWrapper> _postingList = new List<PostWrapper>();
 
     /// <summary>
-    /// ³õÊ¼»¯ÊÂ¼şÏµÍ³
+    /// åˆå§‹åŒ–äº‹ä»¶ç³»ç»Ÿ
     /// </summary>
     public void Initalize()
     {
@@ -51,7 +51,7 @@ public class EventManager
 
         if (_isInitialize == false)
         {
-            // ´´½¨Çı¶¯Æ÷
+            // åˆ›å»ºé©±åŠ¨å™¨
             _isInitialize = true;
             _driver = new UnityEngine.GameObject($"[{nameof(EventManager)}]");
             _driver.AddComponent<EventDriver>();
@@ -61,7 +61,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// Ïú»ÙÊÂ¼şÏµÍ³
+    /// é”€æ¯äº‹ä»¶ç³»ç»Ÿ
     /// </summary>
     public void Destroy()
     {
@@ -77,7 +77,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// ¸üĞÂÊÂ¼şÏµÍ³
+    /// æ›´æ–°äº‹ä»¶ç³»ç»Ÿ
     /// </summary>
     internal void Update()
     {
@@ -93,7 +93,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// Çå¿ÕËùÓĞ¼àÌı
+    /// æ¸…ç©ºæ‰€æœ‰ç›‘å¬
     /// </summary>
     public void ClearAll()
     {
@@ -106,7 +106,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// Ìí¼Ó¼àÌı
+    /// æ·»åŠ ç›‘å¬
     /// </summary>
     public void AddListener<TEvent>(System.Action<IEventMessage> listener) where TEvent : IEventMessage
     {
@@ -116,7 +116,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// Ìí¼Ó¼àÌı
+    /// æ·»åŠ ç›‘å¬
     /// </summary>
     public void AddListener(System.Type eventType, System.Action<IEventMessage> listener)
     {
@@ -125,7 +125,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// Ìí¼Ó¼àÌı
+    /// æ·»åŠ ç›‘å¬
     /// </summary>
     public void AddListener(int eventId, System.Action<IEventMessage> listener)
     {
@@ -137,7 +137,7 @@ public class EventManager
 
 
     /// <summary>
-    /// ÒÆ³ı¼àÌı
+    /// ç§»é™¤ç›‘å¬
     /// </summary>
     public void RemoveListener<TEvent>(System.Action<IEventMessage> listener) where TEvent : IEventMessage
     {
@@ -147,7 +147,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// ÒÆ³ı¼àÌı
+    /// ç§»é™¤ç›‘å¬
     /// </summary>
     public void RemoveListener(System.Type eventType, System.Action<IEventMessage> listener)
     {
@@ -156,7 +156,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// ÒÆ³ı¼àÌı
+    /// ç§»é™¤ç›‘å¬
     /// </summary>
     public void RemoveListener(int eventId, System.Action<IEventMessage> listener)
     {
@@ -169,7 +169,7 @@ public class EventManager
 
 
     /// <summary>
-    /// ÊµÊ±¹ã²¥ÊÂ¼ş
+    /// å®æ—¶å¹¿æ’­äº‹ä»¶
     /// </summary>
     public void SendMessage(IEventMessage message)
     {
@@ -178,7 +178,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// ÊµÊ±¹ã²¥ÊÂ¼ş
+    /// å®æ—¶å¹¿æ’­äº‹ä»¶
     /// </summary>
     public void SendMessage(int eventId, IEventMessage message)
     {
@@ -198,7 +198,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// ÑÓ³Ù¹ã²¥ÊÂ¼ş
+    /// å»¶è¿Ÿå¹¿æ’­äº‹ä»¶
     /// </summary>
     public void PostMessage(IEventMessage message)
     {
@@ -207,7 +207,7 @@ public class EventManager
     }
 
     /// <summary>
-    /// ÑÓ³Ù¹ã²¥ÊÂ¼ş
+    /// å»¶è¿Ÿå¹¿æ’­äº‹ä»¶
     /// </summary>
     public void PostMessage(int eventId, IEventMessage message)
     {

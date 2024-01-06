@@ -1,9 +1,9 @@
-using System;
+ï»¿using System;
 using System.IO;
 using YooAsset;
 
 /// <summary>
-/// ÎÄ¼şÆ«ÒÆ¼ÓÃÜ·½Ê½
+/// æ–‡ä»¶åç§»åŠ å¯†æ–¹å¼
 /// </summary>
 public class FileOffsetEncryption : IEncryptionServices
 {
@@ -31,7 +31,7 @@ public class FileOffsetEncryption : IEncryptionServices
 }
 
 /// <summary>
-/// ÎÄ¼şÁ÷¼ÓÃÜ·½Ê½
+/// æ–‡ä»¶æµåŠ å¯†æ–¹å¼
 /// </summary>
 public class FileStreamEncryption : IEncryptionServices
 {

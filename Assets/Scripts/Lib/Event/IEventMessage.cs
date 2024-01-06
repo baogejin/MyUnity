@@ -1,3 +1,3 @@
-public interface IEventMessage
+﻿public interface IEventMessage
 {
 }

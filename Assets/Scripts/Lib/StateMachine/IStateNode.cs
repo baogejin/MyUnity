@@ -1,5 +1,4 @@
-
-public interface IStateNode
+﻿public interface IStateNode
 {
     void OnCreate(StateMachine machine);
     void OnEnter();

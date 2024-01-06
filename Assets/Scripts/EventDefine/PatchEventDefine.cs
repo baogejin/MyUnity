@@ -1,7 +1,7 @@
-public class PatchEventDefine
+ï»¿public class PatchEventDefine
 {
     /// <summary>
-    /// ²¹¶¡°ü³õÊ¼»¯Ê§°Ü
+    /// è¡¥ä¸åŒ…åˆå§‹åŒ–å¤±è´¥
     /// </summary>
     public class InitializeFailed : IEventMessage
     {
@@ -13,7 +13,7 @@ public class PatchEventDefine
     }
 
     /// <summary>
-    /// ²¹¶¡Á÷³Ì²½Öè¸Ä±ä
+    /// è¡¥ä¸æµç¨‹æ­¥éª¤æ”¹å˜
     /// </summary>
     public class PatchStatesChange : IEventMessage
     {
@@ -28,7 +28,7 @@ public class PatchEventDefine
     }
 
     /// <summary>
-    /// ·¢ÏÖ¸üĞÂÎÄ¼ş
+    /// å‘ç°æ›´æ–°æ–‡ä»¶
     /// </summary>
     public class FoundUpdateFiles : IEventMessage
     {
@@ -45,7 +45,7 @@ public class PatchEventDefine
     }
 
     /// <summary>
-    /// ÏÂÔØ½ø¶È¸üĞÂ
+    /// ä¸‹è½½è¿›åº¦æ›´æ–°
     /// </summary>
     public class DownloadProgressUpdate : IEventMessage
     {
@@ -66,7 +66,7 @@ public class PatchEventDefine
     }
 
     /// <summary>
-    /// ×ÊÔ´°æ±¾ºÅ¸üĞÂÊ§°Ü
+    /// èµ„æºç‰ˆæœ¬å·æ›´æ–°å¤±è´¥
     /// </summary>
     public class PackageVersionUpdateFailed : IEventMessage
     {
@@ -78,7 +78,7 @@ public class PatchEventDefine
     }
 
     /// <summary>
-    /// ²¹¶¡Çåµ¥¸üĞÂÊ§°Ü
+    /// è¡¥ä¸æ¸…å•æ›´æ–°å¤±è´¥
     /// </summary>
     public class PatchManifestUpdateFailed : IEventMessage
     {
@@ -90,7 +90,7 @@ public class PatchEventDefine
     }
 
     /// <summary>
-    /// ÍøÂçÎÄ¼şÏÂÔØÊ§°Ü
+    /// ç½‘ç»œæ–‡ä»¶ä¸‹è½½å¤±è´¥
     /// </summary>
     public class WebFileDownloadFailed : IEventMessage
     {

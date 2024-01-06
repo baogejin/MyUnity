@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 
 public class EventGroup
@@ -6,7 +6,7 @@ public class EventGroup
     private readonly Dictionary<System.Type, List<Action<IEventMessage>>> _cachedListener = new Dictionary<System.Type, List<Action<IEventMessage>>>();
 
     /// <summary>
-    /// Ìí¼ÓÒ»¸ö¼àÌı
+    /// æ·»åŠ ä¸€ä¸ªç›‘å¬
     /// </summary>
     public void AddListener<TEvent>(System.Action<IEventMessage> listener) where TEvent : IEventMessage
     {
@@ -26,7 +26,7 @@ public class EventGroup
     }
 
     /// <summary>
-    /// ÒÆ³ıËùÓĞ»º´æµÄ¼àÌı
+    /// ç§»é™¤æ‰€æœ‰ç¼“å­˜çš„ç›‘å¬
     /// </summary>
     public void RemoveAllListener()
     {
