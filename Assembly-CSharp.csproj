@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Game\Scene\GameScene.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmUpdatePackageVersion.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Base\BaseView.cs" />
+    <Compile Include="Assets\Scripts\Data\GlobalCfg.cs" />
     <Compile Include="Assets\Scripts\Patch\PatchOperation.cs" />
     <Compile Include="Assets\Scripts\Lib\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmCreatePackageDownloader.cs" />
@@ -81,7 +82,6 @@
     <Compile Include="Assets\Scripts\EventDefine\PatchEventDefine.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\EventManager.cs" />
     <Compile Include="Assets\Scripts\Patch\StreamingAssetsHelper\BuildinFileManifest.cs" />
-    <Compile Include="Assets\Scripts\Data\Global.cs" />
     <Compile Include="Assets\Scripts\Data\GenCode\ExampleCfg.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\EventDriver.cs" />
     <Compile Include="Assets\Scripts\Patch\Encryption.cs" />
