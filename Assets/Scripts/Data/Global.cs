@@ -39,6 +39,8 @@ namespace GameData
         {
             if (_GlobalDict == null)
                 InitDict();
+            if (!_GlobalDict.ContainsKey(key))
+                return null;
             return _GlobalDict[key];
         }
 

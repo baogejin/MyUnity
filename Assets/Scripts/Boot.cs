@@ -1,6 +1,7 @@
 ﻿using GameData;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using YooAsset;
 
 public class Boot : MonoBehaviour
@@ -22,11 +23,13 @@ public class Boot : MonoBehaviour
     // Start is called before the first frame update
     IEnumerator Start()
     {
-        Game.Instance.Behaviour = this;
+        Game.Instance.Init(this);
         // 初始化资源系统
         YooAssets.Initialize();
 
-        _patchWindow = new PatchWindow(transform.Find("Canvas").gameObject);
+        // 加载更新页面
+        var go = Resources.Load<GameObject>("PatchWindow");
+        GameObject.Instantiate(go);
 
         // 开始补丁更新流程
         PatchOperation operation = new PatchOperation("DefaultPackage", EDefaultBuildPipeline.BuiltinBuildPipeline.ToString(), PlayMode);
@@ -40,9 +43,7 @@ public class Boot : MonoBehaviour
         //定时清理资源包
         InvokeRepeating("UnloadUnusedAssets", 300f, 300f);
 
-        Debug.Log(GameData.GlobalCfg.Get().GetInfoByKey(GlobalKey.AccountMaxLen).Value);
-
-        //YooAssets.LoadSceneAsync("Assets/GameRes/Scenes/Game");
+        YooAssets.LoadSceneAsync("Assets/GameRes/Scenes/Game");
     }
 
     /// <summary>

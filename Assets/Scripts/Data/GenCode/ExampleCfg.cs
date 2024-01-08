@@ -106,6 +106,10 @@ namespace GameData
             {
                 InitDict();
             }
+            if (!_ExampleDict.ContainsKey(id))
+            {
+                return null;
+            }
             return _ExampleDict[id];
         }
         public AbbInfo GetAbbByID(int id)
@@ -113,6 +117,10 @@ namespace GameData
             if (_AbbDict == null)
             {
                 InitDict();
+            }
+            if (!_AbbDict.ContainsKey(id))
+            {
+                return null;
             }
             return _AbbDict[id];
         }

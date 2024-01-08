@@ -18,7 +18,7 @@ internal class FsmInitializePackage : IStateNode
     void IStateNode.OnEnter()
     {
         PatchEventDefine.PatchStatesChange.SendEventMessage("初始化资源包");
-        Game.Instance.StartCoroutine(InitPackage());
+        Game.StartCoroutine(InitPackage());
     }
     void IStateNode.OnUpdate()
     {

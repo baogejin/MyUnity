@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Diagnostics;
 using UnityEngine.UI;
 
-public class PatchWindow
+public class PatchWindow : MonoBehaviour
 {
     /// <summary>
     /// 对话框封装类
@@ -50,11 +50,12 @@ public class PatchWindow
             Hide();
         }
     }
-    public PatchWindow(GameObject obj)
+
+
+    private void Awake()
     {
-        _object = obj;
-        _progressText = _object.transform.Find("PatchCheck/Progress").GetComponent<Text>();
-        _messageBoxObj = _object.transform.Find("PatchMessageBox").gameObject;
+        _progressText = transform.Find("PatchCheck/Progress").GetComponent<Text>();
+        _messageBoxObj = transform.Find("PatchMessageBox").gameObject;
         _eventGroup.AddListener<PatchEventDefine.InitializeFailed>(OnHandleEventMessage);
         _eventGroup.AddListener<PatchEventDefine.PatchStatesChange>(OnHandleEventMessage);
         _eventGroup.AddListener<PatchEventDefine.FoundUpdateFiles>(OnHandleEventMessage);
@@ -63,6 +64,7 @@ public class PatchWindow
         _eventGroup.AddListener<PatchEventDefine.PatchManifestUpdateFailed>(OnHandleEventMessage);
         _eventGroup.AddListener<PatchEventDefine.WebFileDownloadFailed>(OnHandleEventMessage);
     }
+
     private readonly EventGroup _eventGroup = new EventGroup();
     private readonly List<PatchWindowMessageBox> _msgBoxList = new List<PatchWindowMessageBox>();
 
@@ -168,5 +170,10 @@ public class PatchWindow
 
         // 显示对话框
         msgBox.Show(content, ok);
+    }
+
+    private void OnDestroy()
+    {
+        _eventGroup.RemoveAllListener();
     }
 }

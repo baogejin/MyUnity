@@ -63,13 +63,18 @@
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmUpdaterDone.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmUpdatePackageManifest.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmClearPackageCache.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\SettingUI\SettingUIPanel.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\MainUI\MainUIPanel.cs" />
+    <Compile Include="Assets\Scripts\Game\Scene\GameScene.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmUpdatePackageVersion.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\Base\BaseView.cs" />
     <Compile Include="Assets\Scripts\Patch\PatchOperation.cs" />
     <Compile Include="Assets\Scripts\Lib\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmCreatePackageDownloader.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\IEventMessage.cs" />
     <Compile Include="Assets\Scripts\Lib\StateMachine\IStateNode.cs" />
     <Compile Include="Assets\Scripts\EventDefine\UserEventDefine.cs" />
+    <Compile Include="Assets\Scripts\Game\UIManager.cs" />
     <Compile Include="Assets\Scripts\Patch\StreamingAssetsHelper\StreamingAssetsDefine.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmDownloadPackageFiles.cs" />
     <Compile Include="Assets\Scripts\Boot.cs" />
@@ -86,7 +91,9 @@
     <Compile Include="Assets\Scripts\Lib\Event\EventGroup.cs" />
     <Compile Include="Assets\Scripts\Patch\PatchWindow.cs" />
     <Compile Include="Assets\Scripts\Patch\StreamingAssetsHelper\StreamingAssetsHelper.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\Base\BasePanel.cs" />
     <Compile Include="Assets\Scripts\Game\Game.cs" />
+    <Compile Include="Assets\Scripts\Game\AudioManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

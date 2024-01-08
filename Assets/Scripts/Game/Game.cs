@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using YooAsset;
 
 public class Game
 {
@@ -15,34 +16,54 @@ public class Game
             if (_instance == null)
             {
                 _instance = new Game();
-                _instance.Init();
             }
             return _instance;
         }
     }
 
-    private void Init()
+    private AudioManager _audioManager;
+    public static AudioManager AudioManager
     {
+        get
+        {
+            return _instance._audioManager;
+        }
+    }
 
+    private UIManager _uiManager;
+    public static UIManager UIManager
+    {
+        get
+        {
+            return _instance._uiManager;
+        }
+    }
+
+    public void Init(MonoBehaviour monoBehaviour)
+    {
+        _behaviour = monoBehaviour;
+        AudioSource audioSource = _behaviour.gameObject.transform.Find("Audio").GetComponent<AudioSource>();
+        _audioManager = new AudioManager(audioSource);
+        _uiManager = new UIManager();
     }
 
     /// <summary>
     /// 协程启动器
     /// </summary>
-    public MonoBehaviour Behaviour;
+    private MonoBehaviour _behaviour;
 
     /// <summary>
     /// 开启一个协程
     /// </summary>
-    public void StartCoroutine(IEnumerator enumerator)
+    public static void StartCoroutine(IEnumerator enumerator)
     {
-        if (Behaviour != null)
+        if (_instance != null && _instance._behaviour != null)
         {
-            Behaviour.StartCoroutine(enumerator);
-        }else
+            _instance._behaviour.StartCoroutine(enumerator);
+        }
+        else
         {
-            Debug.LogError("Game Behaviour is null");
+            Debug.LogError("Game not init");
         }
     }
-
 }
