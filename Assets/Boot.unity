@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39b22e85829b9346937685ac6fe19a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayMode: 1
+  PlayMode: 0
 --- !u!4 &1743949713
 Transform:
   m_ObjectHideFlags: 0

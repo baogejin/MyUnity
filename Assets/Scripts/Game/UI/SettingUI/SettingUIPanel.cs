@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingUIPanel : BasePanel
@@ -27,6 +28,7 @@ public class SettingUIPanel : BasePanel
         _bgmSlider.onValueChanged.AddListener(OnChangeBgmVolume);
         _effectSlider.onValueChanged.AddListener(OnChangeEffectVolume);
         _closeBtn.onClick.AddListener(ClosePanel);
+        Time.timeScale = 0f;
     }
 
     private void OnChangeBgmVolume(float value)
@@ -37,5 +39,11 @@ public class SettingUIPanel : BasePanel
     private void OnChangeEffectVolume(float value)
     {
         Game.AudioManager.EffectVolume = value;
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        Time.timeScale = 1f;
     }
 }
