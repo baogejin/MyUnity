@@ -43,7 +43,7 @@ public class Boot : MonoBehaviour
         //定时清理资源包
         InvokeRepeating("UnloadUnusedAssets", 300f, 300f);
 
-        YooAssets.LoadSceneAsync("Assets/GameRes/Scenes/Game");
+        YooAssets.LoadSceneAsync("Assets/GameRes/Scenes/HallScene");
     }
 
     /// <summary>
@@ -54,6 +54,11 @@ public class Boot : MonoBehaviour
         Debug.Log("UnloadUnusedAssets");
         var package = YooAssets.GetPackage("DefaultPackage");
         package.UnloadUnusedAssets();
+    }
+
+    private void Update()
+    {
+        SystemEventDefine.EngineUpdate.SendEventMessage();
     }
 }
 

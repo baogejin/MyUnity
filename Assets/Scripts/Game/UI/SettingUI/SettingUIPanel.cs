@@ -43,7 +43,6 @@ public class SettingUIPanel : BasePanel
 
     protected override void OnDestroy()
     {
-        base.OnDestroy();
         Time.timeScale = 1f;
     }
 }

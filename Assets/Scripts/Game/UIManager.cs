@@ -57,6 +57,10 @@ public class UIManager
                 return new MainUIPanel();
             case GameUI.SettingUI:
                 return new SettingUIPanel();
+            case GameUI.HallUI:
+                return new HallUIPanel();
+            case GameUI.LoadingUI:
+                return new LoadingUIPanel();
         }
         return null;
     }
@@ -66,4 +70,6 @@ static class GameUI
 {
     public const string MainUI = "MainUI";
     public const string SettingUI = "SettingUI";
+    public const string HallUI = "HallUI";
+    public const string LoadingUI = "LoadingUI";
 }

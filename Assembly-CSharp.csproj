@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmUpdaterDone.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmUpdatePackageManifest.cs" />
+    <Compile Include="Assets\Scripts\Game\Scene\HallScene.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmClearPackageCache.cs" />
     <Compile Include="Assets\Scripts\Game\UI\SettingUI\SettingUIPanel.cs" />
     <Compile Include="Assets\Scripts\Game\UI\MainUI\MainUIPanel.cs" />
@@ -71,18 +72,23 @@
     <Compile Include="Assets\Scripts\Data\GlobalCfg.cs" />
     <Compile Include="Assets\Scripts\Game\Ship\PlayerShip.cs" />
     <Compile Include="Assets\Scripts\Patch\PatchOperation.cs" />
+    <Compile Include="Assets\Scripts\EventDefine\SystemEventDefine.cs" />
     <Compile Include="Assets\Scripts\Lib\StateMachine\StateMachine.cs" />
     <Compile Include="Assets\Scripts\Game\Ship\CollectBullet.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmCreatePackageDownloader.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\IEventMessage.cs" />
     <Compile Include="Assets\Scripts\Lib\StateMachine\IStateNode.cs" />
     <Compile Include="Assets\Scripts\EventDefine\UserEventDefine.cs" />
+    <Compile Include="Assets\Scripts\EventDefine\PlayerEventDefine.cs" />
+    <Compile Include="Assets\Scripts\Game\Player\PlayerInfo.cs" />
     <Compile Include="Assets\Scripts\Game\UIManager.cs" />
     <Compile Include="Assets\Scripts\Patch\StreamingAssetsHelper\StreamingAssetsDefine.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\HallUI\HallUIPanel.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmDownloadPackageFiles.cs" />
     <Compile Include="Assets\Scripts\Boot.cs" />
     <Compile Include="Assets\Scripts\EventDefine\PatchEventDefine.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\EventManager.cs" />
+    <Compile Include="Assets\Scripts\Common\CommonStruct.cs" />
     <Compile Include="Assets\Scripts\Patch\StreamingAssetsHelper\BuildinFileManifest.cs" />
     <Compile Include="Assets\Scripts\Data\GenCode\ExampleCfg.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\EventDriver.cs" />
@@ -90,10 +96,12 @@
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmDownloadPackageOver.cs" />
     <Compile Include="Assets\Scripts\Data\GenCode\GlobalKey.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmInitializePackage.cs" />
+    <Compile Include="Assets\Scripts\Data\GenCode\SpaceShipCfg.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\EventGroup.cs" />
     <Compile Include="Assets\Scripts\Patch\PatchWindow.cs" />
     <Compile Include="Assets\Scripts\Patch\StreamingAssetsHelper\StreamingAssetsHelper.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Base\BasePanel.cs" />
+    <Compile Include="Assets\Scripts\Game\UI\LoadingUI\LoadingUIPanel.cs" />
     <Compile Include="Assets\Scripts\Game\Game.cs" />
     <Compile Include="Assets\Scripts\Game\SpaceRes\Mine.cs" />
     <Compile Include="Assets\Scripts\Game\AudioManager.cs" />

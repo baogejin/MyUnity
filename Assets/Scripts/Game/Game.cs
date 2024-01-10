@@ -39,12 +39,23 @@ public class Game
         }
     }
 
+    private PlayerInfo _playerInfo;
+    public static PlayerInfo PlayerInfo
+    {
+        get
+        {
+            return _instance._playerInfo;
+        }
+    }
+
     public void Init(MonoBehaviour monoBehaviour)
     {
         _behaviour = monoBehaviour;
         AudioSource audioSource = _behaviour.gameObject.transform.Find("Audio").GetComponent<AudioSource>();
         _audioManager = new AudioManager(audioSource);
         _uiManager = new UIManager();
+        _playerInfo = new PlayerInfo();
+        _playerInfo.Init();
     }
 
     /// <summary>

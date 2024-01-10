@@ -14,7 +14,7 @@ public class CollectBullet : MonoBehaviour
     void Start()
     {
         _originPos = transform.position;
-        transform.position += transform.up*2;
+        transform.position += transform.up * 2;
     }
 
     private void FixedUpdate()
@@ -26,7 +26,7 @@ public class CollectBullet : MonoBehaviour
             float angleToTarget = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg - 90f; // 计算与X轴正方向的夹角
             Quaternion rotationToTarget = Quaternion.Euler(0, 0, angleToTarget); // 创建一个新的四元数表示旋转
             transform.rotation = rotationToTarget; // 更新当前对象的旋转
-            if (Vector3.Distance(_ship.transform.position,transform.position) < 1f)
+            if (Vector3.Distance(_ship.transform.position, transform.position) < 1f)
             {
                 Destroy(gameObject);
             }
@@ -43,11 +43,16 @@ public class CollectBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (_back)
+        {
+            return;
+        }
         Mine mine = collision.GetComponent<Mine>();
         if (mine != null)
         {
             mine.Collect();
         }
+        _back = true;
     }
 
     public void SetShip(GameObject ship)
