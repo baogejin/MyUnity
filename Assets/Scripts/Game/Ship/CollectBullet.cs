@@ -15,6 +15,7 @@ public class CollectBullet : MonoBehaviour
     {
         _originPos = transform.position;
         transform.position += transform.up * 2;
+        Debug.Log(transform.GetInstanceID());
     }
 
     private void FixedUpdate()

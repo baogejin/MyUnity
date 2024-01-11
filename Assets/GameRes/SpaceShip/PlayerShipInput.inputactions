@@ -6,27 +6,18 @@
             "id": "c5dd1ebe-26e5-4909-ad76-bb401df36dcf",
             "actions": [
                 {
-                    "name": "Action1",
-                    "type": "Button",
-                    "id": "93ea08c1-2b61-4f06-9aea-28d79876b193",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Move",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "5c8815b6-c38c-4029-89c5-f32ec5b10cc3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
-                    "name": "Stop",
+                    "name": "CollecterLaunch",
                     "type": "Button",
-                    "id": "861a3f94-60bd-46e5-bfae-d036cd9fe06e",
+                    "id": "93ea08c1-2b61-4f06-9aea-28d79876b193",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -36,30 +27,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
-                    "path": "<XInputController>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Action1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
-                    "path": "<Keyboard>/1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Action1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "06e3d9c5-b6b5-428b-b072-65302403029d",
-                    "path": "<Keyboard>/a",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -70,7 +39,7 @@
                 {
                     "name": "",
                     "id": "85f05f2a-4cc8-4512-a4f6-433e3b5bfdb3",
-                    "path": "<XInputController>/rightShoulder",
+                    "path": "<XInputController>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -80,23 +49,23 @@
                 },
                 {
                     "name": "",
-                    "id": "f3d04780-3c13-4183-ba06-6d1060a3e353",
-                    "path": "<Keyboard>/s",
+                    "id": "143bb1cd-cc10-4eca-a2f0-a3664166fe91",
+                    "path": "<XInputController>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Stop",
+                    "groups": "Gamepad",
+                    "action": "CollecterLaunch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "128d569f-d0f6-4628-bf08-05bd60d6a45d",
-                    "path": "<XInputController>/leftShoulder",
+                    "id": "05f6913d-c316-48b2-a6bb-e225f14c7960",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Stop",
+                    "groups": "Keyboard&Mouse",
+                    "action": "CollecterLaunch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

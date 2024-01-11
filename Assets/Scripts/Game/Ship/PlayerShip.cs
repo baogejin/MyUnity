@@ -2,6 +2,8 @@ using GameData;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class PlayerShip : MonoBehaviour
 {
@@ -60,7 +62,7 @@ public class PlayerShip : MonoBehaviour
             }
             else
             {
-                _move = false;
+                //_move = false;
             }
         }
         _status.power += _status.addPowerRate * Time.deltaTime;
@@ -71,26 +73,23 @@ public class PlayerShip : MonoBehaviour
         PlayerEventDefine.PlayerStatusUpdate.SendEventMessage(_status);
     }
 
-    void OnMove()
+    void OnMove(InputValue value)
     {
-        if (Time.timeScale== 0f)
+        if (value.isPressed)
         {
-            return;
+            if (!_move)
+            {
+                _ship.rotation = _direction.rotation;
+                _move = true;
+            }
         }
-        _ship.rotation = _direction.rotation;
-        _move = true;
+        else
+        {
+            _move = false;
+        }
     }
 
-    void OnStop()
-    {
-        if (Time.timeScale == 0f)
-        {
-            return;
-        }
-        _move = false;
-    }
-
-    void OnAction1()
+    void OnCollecterLaunch()
     {
         if (Time.timeScale == 0f)
         {

@@ -5,7 +5,7 @@ public class PlayerInfo
     public int goldNum;
     public int shipBody = 1;
     public int battery = 1;
-    public int solarPanel = 2;
+    public int solarPanel = 1;
     public int collecterLauncher = 1;
     public int missileLauncher = 1;
     public int laserLauncher = 1;
