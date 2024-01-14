@@ -48,6 +48,15 @@ public class Game
         }
     }
 
+    private BattleInfo _battleInfo;
+    public static BattleInfo BattleInfo
+    {
+        get
+        {
+            return _instance._battleInfo;
+        }
+    }
+
     public void Init(MonoBehaviour monoBehaviour)
     {
         _behaviour = monoBehaviour;
@@ -56,6 +65,7 @@ public class Game
         _uiManager = new UIManager();
         _playerInfo = new PlayerInfo();
         _playerInfo.Init();
+        _battleInfo = new BattleInfo();
     }
 
     /// <summary>

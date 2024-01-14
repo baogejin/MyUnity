@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
-public class CollectBullet : MonoBehaviour
+public class ResourceCollecter : SpaceObject
 {
     private Vector3 _originPos;
     private float speed = 0.1f;
@@ -14,8 +11,6 @@ public class CollectBullet : MonoBehaviour
     void Start()
     {
         _originPos = transform.position;
-        transform.position += transform.up * 2;
-        Debug.Log(transform.GetInstanceID());
     }
 
     private void FixedUpdate()
@@ -48,16 +43,21 @@ public class CollectBullet : MonoBehaviour
         {
             return;
         }
-        Mine mine = collision.GetComponent<Mine>();
+        SpaceResource mine = collision.GetComponent<SpaceResource>();
         if (mine != null)
         {
             mine.Collect();
+            _back = true;
         }
-        _back = true;
     }
 
     public void SetShip(GameObject ship)
     {
         _ship = ship;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        _back = true;
     }
 }

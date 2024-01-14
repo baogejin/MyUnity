@@ -65,19 +65,21 @@
     <Compile Include="Assets\Scripts\Game\Scene\HallScene.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmClearPackageCache.cs" />
     <Compile Include="Assets\Scripts\Game\UI\SettingUI\SettingUIPanel.cs" />
+    <Compile Include="Assets\Scripts\Game\SpaceObjects\ResourceCollecter.cs" />
     <Compile Include="Assets\Scripts\Game\UI\MainUI\MainUIPanel.cs" />
     <Compile Include="Assets\Scripts\Game\Scene\GameScene.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmUpdatePackageVersion.cs" />
     <Compile Include="Assets\Scripts\Game\Battle\BattleInfo.cs" />
     <Compile Include="Assets\Scripts\Game\UI\Base\BaseView.cs" />
     <Compile Include="Assets\Scripts\Data\GlobalCfg.cs" />
-    <Compile Include="Assets\Scripts\Game\Ship\PlayerShip.cs" />
     <Compile Include="Assets\Scripts\Patch\PatchOperation.cs" />
     <Compile Include="Assets\Scripts\EventDefine\SystemEventDefine.cs" />
     <Compile Include="Assets\Scripts\Lib\StateMachine\StateMachine.cs" />
-    <Compile Include="Assets\Scripts\Game\Ship\CollectBullet.cs" />
+    <Compile Include="Assets\Scripts\Game\SpaceObjects\SpaceResource.cs" />
+    <Compile Include="Assets\Scripts\Game\SpaceObjects\Laser.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmCreatePackageDownloader.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\IEventMessage.cs" />
+    <Compile Include="Assets\Scripts\Game\SpaceObjects\Missile.cs" />
     <Compile Include="Assets\Scripts\Lib\StateMachine\IStateNode.cs" />
     <Compile Include="Assets\Scripts\EventDefine\UserEventDefine.cs" />
     <Compile Include="Assets\Scripts\EventDefine\PlayerEventDefine.cs" />
@@ -99,6 +101,8 @@
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmDownloadPackageOver.cs" />
     <Compile Include="Assets\Scripts\Data\GenCode\GlobalKey.cs" />
     <Compile Include="Assets\Scripts\Patch\FsmNode\FsmInitializePackage.cs" />
+    <Compile Include="Assets\Scripts\Game\SpaceObjects\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\Game\SpaceObjects\PlayerShip.cs" />
     <Compile Include="Assets\Scripts\Data\GenCode\SpaceShipCfg.cs" />
     <Compile Include="Assets\Scripts\Lib\Event\EventGroup.cs" />
     <Compile Include="Assets\Scripts\Patch\PatchWindow.cs" />
@@ -106,7 +110,6 @@
     <Compile Include="Assets\Scripts\Game\UI\Base\BasePanel.cs" />
     <Compile Include="Assets\Scripts\Game\UI\LoadingUI\LoadingUIPanel.cs" />
     <Compile Include="Assets\Scripts\Game\Game.cs" />
-    <Compile Include="Assets\Scripts\Game\SpaceRes\Mine.cs" />
     <Compile Include="Assets\Scripts\Game\AudioManager.cs" />
   </ItemGroup>
   <ItemGroup>

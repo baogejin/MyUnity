@@ -39,6 +39,7 @@ public class HallUIPanel : BasePanel
 
     private void OnStart()
     {
+        Game.BattleInfo.InitBattle();
         Game.UIManager.ShowUI(GameUI.LoadingUI);
         YooAssets.LoadSceneAsync("Assets/GameRes/Scenes/Game");
 

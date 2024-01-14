@@ -22,6 +22,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MissileLaunch",
+                    "type": "Button",
+                    "id": "e90f5b9b-06f9-4fcb-b662-5c44526e9da6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LaserLaunch",
+                    "type": "Button",
+                    "id": "40ed54e3-5200-458f-9139-3003e47b017e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -66,6 +84,50 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "CollecterLaunch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2cff977-f9d7-46ee-84b1-07dd7d2ae0e8",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MissileLaunch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "420c8dae-118e-419d-b289-7a41d72203eb",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MissileLaunch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e30542ee-9970-410f-9c6a-d69d1c9f7bee",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LaserLaunch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c252e66d-10aa-408d-afa7-44f3dea0f1f0",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LaserLaunch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

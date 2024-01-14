@@ -5,17 +5,20 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
-public class PlayerShip : MonoBehaviour
+public class PlayerShip : BaseShip
 {
     private Transform _ship;
     private Transform _direction;
-    public GameObject CollectBullet;
+    public GameObject collecter;
+    public GameObject missile;
+    public GameObject laser;
 
     private PlayerStatus _status = new PlayerStatus();
 
     private bool _move = false;
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         _direction = transform.Find("Direction");
         _ship = transform.Find("Ship");
 
@@ -46,23 +49,19 @@ public class PlayerShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        _direction.Rotate(0f, 0f, Time.deltaTime * 90f);
+        _direction.Rotate(0f, 0f, Time.deltaTime * 30f);
         if (_move)
         {
             if (_status.power >= _status.thrusterPowerRate * Time.deltaTime)
             {
                 transform.position += _ship.transform.up * Time.deltaTime * _status.thrusterSpeed;
                 _status.power -= _status.thrusterPowerRate * Time.deltaTime;
-            }
-            else
-            {
-                //_move = false;
             }
         }
         _status.power += _status.addPowerRate * Time.deltaTime;
@@ -71,6 +70,15 @@ public class PlayerShip : MonoBehaviour
             _status.power = _status.maxPower;
         }
         PlayerEventDefine.PlayerStatusUpdate.SendEventMessage(_status);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        SpaceResource mine = collision.GetComponent<SpaceResource>();
+        if (mine != null)
+        {
+            mine.Collect();
+        }
     }
 
     void OnMove(InputValue value)
@@ -95,20 +103,40 @@ public class PlayerShip : MonoBehaviour
         {
             return;
         }
-        var go = GameObject.Instantiate(CollectBullet, transform.position, _direction.rotation);
-        CollectBullet bullet = go.GetComponent<CollectBullet>();
-        if (bullet != null )
+        var go = GameObject.Instantiate(collecter, transform.position + _direction.up * 2, _direction.rotation);
+        ResourceCollecter bullet = go.GetComponent<ResourceCollecter>();
+        if (bullet != null)
         {
             bullet.SetShip(gameObject);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnMissileLaunch()
     {
-        Mine mine = collision.GetComponent<Mine>();
-        if (mine != null)
+        if (Time.timeScale == 0f)
         {
-            mine.Collect();
+            return;
         }
+        GameObject.Instantiate(missile, transform.position + _direction.up * 2, _direction.rotation);
+    }
+
+    void OnLaserLaunch()
+    {
+        var go = GameObject.Instantiate(laser, transform.position + _direction.up * 2, _direction.rotation);
+        SpriteRenderer s = go.GetComponent<SpriteRenderer>();
+        s.size = new Vector2(0.64f, 100f);
+
+        Collider2D[] collisions = Physics2D.OverlapBoxAll(transform.position+ _direction.up * 52f, new Vector2(0.64f, 100f), _direction.rotation.eulerAngles.z);
+        if (collisions.Length > 0)
+        {
+            foreach(Collider2D collision in collisions)
+            {
+                SpaceObject spaceObject = collision.GetComponent<SpaceObject>();
+                if (spaceObject != null)
+                {
+                    spaceObject.TakeDamage(1);
+                }
+            }
+        }       
     }
 }
